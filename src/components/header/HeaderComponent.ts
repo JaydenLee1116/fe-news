@@ -3,7 +3,7 @@ import { Component } from '@custom-types/interfaces';
 import { HeaderModel } from '@components/header/HeaderModel.js';
 import { HeaderView } from '@components/header/HeaderView.js';
 
-export class HeaderComponent implements Component {
+export class HeaderComponent {
   private _model: HeaderModel;
   private _view: HeaderView;
   constructor(props?: Props) {

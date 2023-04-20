@@ -1,20 +1,17 @@
 import { State } from '@custom-types/types';
 import { AbstractView } from '@custom-types/abstracts.js';
 import { $ } from '@utils/dom.js';
+import { getKrDate } from '@utils/date.js';
 
 export class NsDateView extends AbstractView {
   constructor() {
     super();
   }
 
-  protected setTemplate() {
-    this._templateElement.innerHTML = `<p class="w-1/2 h-full text-right text-base/[3rem] font-medium text-gray-500"></p>`;
-  }
-
-  render(state: State) {
-    const { date } = state;
-    if (typeof date === 'string') {
-      this.element.textContent = date;
-    }
+  template() {
+    return `<p class="w-1/2 h-full text-right text-base/[3rem] font-medium text-gray-500">${getKrDate(
+      'ko-KR',
+      new Date(),
+    )}</p>`;
   }
 }

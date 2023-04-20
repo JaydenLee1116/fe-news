@@ -6,11 +6,7 @@ export class MainView extends AbstractView {
     super();
   }
 
-  protected setTemplate() {
-    this._templateElement.innerHTML = `<main class="h-4/6 flex flex-row justify-end flex-initial"></main>`;
-  }
-
-  render(state: State) {
-    return;
+  template(state: State) {
+    return `<main class="h-4/6 flex flex-row justify-end flex-initial"></main>`;
   }
 }

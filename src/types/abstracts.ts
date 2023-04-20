@@ -25,12 +25,15 @@ export abstract class AbstractView implements View {
     this._element = this._templateElement.content
       .firstElementChild as HTMLElement;
 
-    this.setTemplate();
-    this.setElement();
+    this.init({});
   }
 
-  protected setTemplate() {
-    this._templateElement.innerHTML = ``;
+  template(state: State) {
+    return `<></>`;
+  }
+
+  protected setTemplate(state: State) {
+    this._templateElement.innerHTML = this.template(state);
   }
 
   protected setElement() {
@@ -39,11 +42,15 @@ export abstract class AbstractView implements View {
   }
 
   render(state: State) {
-    this.element.innerHTML = ``;
+    this.init(state);
   }
 
   get element() {
     return this._element;
+  }
+
+  setEvents(state: State) {
+    return;
   }
 
   setEvent(
@@ -52,6 +59,12 @@ export abstract class AbstractView implements View {
     handler: EventListener,
   ) {
     $(selector, this.element)!.addEventListener(eventName, handler);
+  }
+
+  init(state: State) {
+    this.setTemplate(state);
+    this.setElement();
+    this.setEvents(state);
   }
 }
 

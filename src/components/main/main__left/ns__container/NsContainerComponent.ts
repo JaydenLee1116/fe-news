@@ -14,12 +14,14 @@ export class NsContainerComponent implements Component {
   constructor(props?: Props) {
     this._model = new NsContainerModel();
     this._view = new NsContainerView();
+
     // props 전달부터 하기
     const articlesPromise = this.getArticles();
-    const view: ViewState = 'GRID';
-    const handleToView = this.handleToView.bind(this);
-    this.attachChildComponents({ articlesPromise, handleToView });
+    const setView = this.setView.bind(this);
+    this.attachChildComponents({ articlesPromise, handleToView: setView });
+
     // props 전달 후에 setState
+    const view: ViewState = 'GRID';
     this.setState({ view });
   }
 
@@ -52,7 +54,7 @@ export class NsContainerComponent implements Component {
     nsCategoryContainer.attachTo(this);
   }
 
-  handleToView(state: State) {
+  setView(state: State) {
     const { view } = state;
     this.setState({ view });
   }
