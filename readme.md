@@ -19,10 +19,11 @@
 [JaydenLee1116 - 뉴스 스탠드](https://github.com/JaydenLee1116/fe-news)로 이동하여 `clone` 합니다.
 
 ```shell
-# Code - HTTPS clone 예시
-git clone https://github.com/JaydenLee1116/wanted-internship-w4.git
+# 깃 클론
+git clone https://github.com/JaydenLee1116/fe-news.git
+
 # 폴더 이동
-cd wanted-internship-w4
+cd fe-news
 ```
 
 ## 2. 패키지 설치 및 실행
